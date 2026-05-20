@@ -37,7 +37,7 @@ export default function ContactView() {
       const data = await response.json();
 
       if (response.ok) {
-        setStatus({ loading: false, success: 'Message transmitted successfully!', error: null });
+        setStatus({ loading: false, success: 'Thanks for contacting me!', error: null });
         setFormData({ name: '', email: '', subject: '', message: '' }); // Form clear karne ke liye
       } else {
         setStatus({ loading: false, success: null, error: data.error || 'Something went wrong.' });
