@@ -10,11 +10,12 @@ import ContactView from './components/ContactView';
 import Footer from './components/Footer';
 import { Analytics } from '@vercel/analytics/react';
 
+// ... (imports waise hi rahenge)
+
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
 
   return (
-    // 💡 overflow-x-hidden use kiya taaki content cut na ho aur footer dikhe
     <div className="min-h-screen flex flex-col bg-[var(--bg-surface)] text-[var(--text-main)] relative overflow-x-hidden">
       
       <AmbientBackground />
@@ -30,34 +31,19 @@ export default function App() {
             transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
             className="w-full"
           >
-            {/* 🎯 Navigation ke liye IDs add kar di hain */}
             <div className="flex flex-col gap-20 sm:gap-32 w-full">
-               <div id="home">
-                <HomeView setActiveSection={setActiveSection} />
-              </div>
-              
-              <div id="about">
-                <AboutView />
-              </div>
-
-              <div id="projects">
-                <ProjectsView />
-              </div>
-
-              <div id="experience">
-                <ExperienceView />
-              </div>
-
-              <div id="contact">
-                <ContactView />
-              </div>
+               <div id="home"><HomeView setActiveSection={setActiveSection} /></div>
+               <div id="about"><AboutView /></div>
+               <div id="projects"><ProjectsView /></div>
+               <div id="experience"><ExperienceView /></div>
+               <div id="contact"><ContactView /></div>
             </div>
           </motion.div>
         </AnimatePresence>
       </main>
-<Footer />
-<Analytics />
+
+      <Footer />
+      <Analytics /> {/* Sirf yahan rakho, ekdum clean! */}
     </div>
-    
   );
 }
