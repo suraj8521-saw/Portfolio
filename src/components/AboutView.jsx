@@ -51,19 +51,24 @@ export default function AboutView() {
         </motion.div>
 
         <motion.div variants={itemVariants} className="md:col-span-7 space-y-4 text-center md:text-left px-2 sm:px-0">
-          {/* Subheading: Connected directly to your Accent color */}
-          <span className="text-xs uppercase tracking-[0.3em] font-bold text-[var(--accent-gold)] block">Who I Am</span>
-          
-          {/* Heading: Connected directly to Main Text Color (Pure Dark) */}
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif font-black text-[var(--text-main)] leading-tight">
-            Building Clean Code, <br />
-            <span className="font-sans font-medium italic text-[var(--accent-gold)]">Solving Real Problems.</span>
-          </h2>
-          
-          {/* Paragraph: Connected directly to Main Text Color */}
-          <p className="text-[var(--text-main)] text-sm sm:text-base font-bold leading-relaxed tracking-wide">
-            I am a software developer who loves to solve logical problems and build high-performance web systems. I don't just write lines of code; I design clean architectures, optimize complex databases, and build seamless user interfaces that stay rock-solid under heavy use. My goal is simple: eliminate messy code and build software that scales effortlessly.
-          </p>
+          {/* Subheading: Authority & Vision */}
+<span className="text-xs uppercase tracking-[0.3em] font-black text-[var(--accent-gold)] block mb-2">
+  Engineered for Impact
+</span>
+
+{/* Heading: Bold Startup Focus */}
+<h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-black text-[var(--text-main)] leading-tight mb-8">
+  Bridging Complex Logic with <br />
+  <span className="font-sans font-medium italic text-[var(--accent-gold)]">Intelligent Web Solutions.</span>
+</h2>
+
+{/* Paragraph: Sharp & Technical */}
+<p className="text-[var(--text-main)] text-sm sm:text-lg font-medium leading-relaxed max-w-3xl">
+  I transform complex technical challenges into scalable, intelligent software architectures. 
+  By fusing MERN-stack expertise with AI/ML integration, I build high-performance systems 
+  that don't just solve current problems—they anticipate future scale. 
+  Dedicated to eliminating technical debt through clean, modular, and performance-first engineering.
+</p>
         </motion.div>
       </div>
 
@@ -84,7 +89,7 @@ export default function AboutView() {
           />
           
           <TimelineItem 
-            year="2024 — 2026"
+            year="2025 — 2027"
             degree="Master of Computer Applications (MCA)"
             institution="Galgotias University | Postgraduate Degree"
             description="Focusing on enterprise full-stack architecture, machine learning with Python, and building secure, cloud-integrated ecosystems."
