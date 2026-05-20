@@ -42,7 +42,7 @@ export default async function handler(req, res) {
           // ... baaki code waisa hi rahega, bas ye neeche wala part update kar do:
 
           <div style="padding: 30px; text-align: center;">
-         <img src="https://github.com/suraj8521-saw/Portfolio/blob/main/public/surajprofile.jpg" 
+         <img src="https://raw.githubusercontent.com/suraj8521-saw/Portfolio/main/public/surajprofile.jpg" 
      alt="Suraj Kumar Saw" 
      style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #d4af37; object-fit: cover;">
             <div style="text-align: left; margin-top: 20px;">
