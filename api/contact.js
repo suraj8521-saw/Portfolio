@@ -1,52 +1,74 @@
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
-  // CORS Headers allow karne ke liye (taaki frontend request block na ho)
+  // CORS Headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
+  res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Handle OPTIONS request (Pre-flight check)
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const { name, email, subject, message } = req.body;
 
-  // Basic Validation
-  if (!name || !email || !subject || !message) {
-    return res.status(400).json({ error: 'Bhai, saare fields bharne zaroori hain!' });
-  }
-
-  // Nodemailer config setup using Google App Password
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER, // Vercel dashboard se aayega
-      pass: process.env.EMAIL_PASS  // Vercel dashboard se aayega
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
     }
   });
 
   try {
-    // Email triggers
+    // 1. Email to YOU (Notification)
     await transporter.sendMail({
-      from: `"${name}" <${email}>`,
-      to: process.env.EMAIL_USER, // Tujhe jis mail par receive karna hai (Tera khud ka email)
-      subject: `Portfolio Contact: ${subject}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-      replyTo: email // Taaki tu inbox se direct reply kare toh user ko jaye
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
+      subject: `New Message: ${subject}`,
+      text: `From: ${name} (${email})\n\nMessage: ${message}`
     });
 
-    return res.status(200).json({ success: true, message: 'Message transmitted successfully!' });
+    // 2. Email to SENDER (Professional Confirmation)
+    await transporter.sendMail({
+      from: `"Suraj Kumar Saw" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: "Message Received - Let's Build Something!",
+     html: `
+        <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; border-radius: 10px; overflow: hidden;">
+          <div style="background-color: #000; padding: 20px; text-align: center;">
+            <h1 style="color: #d4af37; margin: 0;">SK.</h1>
+          </div>
+          <div style="padding: 30px; text-align: center;">
+            <img src="https://YOUR-VERCEL-DOMAIN.vercel.app/surajprofile.jpg" alt="Suraj Kumar Saw" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #d4af37; object-fit: cover;">
+            
+            <div style="text-align: left; margin-top: 20px;">
+              <h2 style="color: #333;">Hi ${name},</h2>
+              <p style="color: #555; font-size: 16px;">Thanks for reaching out! I've successfully received your message regarding <strong>"${subject}"</strong>.</p>
+              <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #d4af37; margin: 20px 0;">
+                <p style="font-style: italic; color: #666;">"${message}"</p>
+              </div>
+              <p style="color: #555;">I appreciate your interest and will get back to you shortly.</p>
+              <p style="color: #333; font-weight: bold;">Best Regards,<br>Suraj Kumar Saw</p>
+            </div>
+          </div>
+          <div style="background: #f4f4f4; padding: 15px; text-align: center; font-size: 12px; color: #888;">
+            <p>Full-Stack Developer | IT Analyst</p>
+          </div>
+        </div>
+      `,
+      // Agar image attach karni hai toh ye uncomment kar dena (aur public folder mein photo honi chahiye)
+      
+      // attachments: [{
+      //   filename: 'profile.jpg',
+      //   path: 'https://your-deployed-url.com/profile.jpg', // Yahan apni live photo ka link dena
+      //   cid: 'profile'
+      // }]
+      
+    });
+
+    return res.status(200).json({ success: true });
   } catch (error) {
-    return res.status(500).json({ error: 'Email send karne mein dikkat aayi.', details: error.message });
+    return res.status(500).json({ error: error.message });
   }
 }
