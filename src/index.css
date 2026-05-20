@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-luxury-bg: var(--bg-surface);
+  --color-luxury-text: var(--text-main);
+  --color-luxury-muted: var(--text-muted);
+  --color-luxury-gold: var(--accent-gold);
+}
+
+:root {
+  /* 💡 Soft, cool slate frosted overlay for Light Mode */
+  --bg-surface: rgba(226, 232, 240, 0.45); 
+  --text-main: #0F172A;    
+  --text-muted: #475569;  
+  --accent-gold: #7c3aed; /* Deep, rich elegant purple */
+}
+
+.dark {
+  --bg-surface: #060609; 
+  --text-main: #F8FAFC;    
+  --text-muted: #8B949E;  
+  --accent-gold: #38BDF8; /* Dark mode neon sky blue */
+}
+
+/* Super smooth slow motion drifting layout */
+@keyframes liquidAura {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🌟 LIGHT MODE: Premium Cool Slate & Muted Indigo */
+body:not(.dark) {
+  background: linear-gradient(
+    -45deg, 
+    #f1f5f9, /* Slate 100 - Cool, calm, professional */
+    #e2e8f0, /* Slate 200 - Slight depth, not glaring */
+    #e0e7ff, /* Indigo 100 - Very soft muted purple/blue tint */
+    #f8fafc  /* Slate 50 - Just for highlight, soft on eyes */
+  );
+  background-size: 400% 400%;
+  animation: liquidAura 18s ease infinite;
+  background-attachment: fixed;
+}
+
+/* 🌙 DARK MODE: Minimal Deep Space Velvet Obsidian */
+body.dark {
+  background: #05050A; 
+}
+
+body {
+  color: var(--text-main);
+  transition: color 0.6s ease, background 0.6s ease;
+  overflow-x: hidden;
+}
