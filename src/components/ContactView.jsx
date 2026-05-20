@@ -108,7 +108,7 @@ export default function ContactView() {
               <h4 className="font-black text-[var(--text-main)]">Status: Available</h4>
             </div>
             <p className="text-sm font-bold text-[var(--text-muted)]">
-              Actively exploring Full-Stack Developer and IT Analyst roles.
+              Actively crafting full-stack solutions and exploring innovations in AI & Machine Learning.
             </p>
           </div>
         </motion.div>
@@ -137,7 +137,7 @@ export default function ContactView() {
 
               <button type="submit" disabled={status.loading} className="group mt-2 w-full sm:w-auto self-end flex items-center justify-center gap-3 bg-[var(--text-main)] text-[var(--bg-surface)] px-8 py-4 rounded-2xl font-black hover:scale-[1.02] transition-all shadow-xl disabled:opacity-50">
                 <Send className="w-5 h-5 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
-                {status.loading ? 'Transmitting...' : 'Transmit Message'}
+                {status.loading ? 'Sending...' : 'Connect Me'}
               </button>
             </form>
           </div>
