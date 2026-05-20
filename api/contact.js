@@ -39,8 +39,7 @@ export default async function handler(req, res) {
           <div style="background-color: #000; padding: 20px; text-align: center;">
             <h1 style="color: #d4af37; margin: 0;">SK.</h1>
           </div>
-          // ... baaki code waisa hi rahega, bas ye neeche wala part update kar do:
-
+        
           <div style="padding: 30px; text-align: center;">
          <img src="https://raw.githubusercontent.com/suraj8521-saw/Portfolio/main/public/surajprofile.jpg" 
      alt="Suraj Kumar Saw" 

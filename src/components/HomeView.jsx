@@ -43,7 +43,7 @@ export default function HomeView({ setActiveSection }) {
         </div>
         
         <h2 className={`text-xs md:text-sm uppercase tracking-[0.4em] font-black ${isDarkMode ? 'text-sky-400' : 'text-[#7e22ce]'}`}>
-          Full-Stack Developer
+          Full-Stack & AI/ML Developer
         </h2>
       </motion.div>
 
