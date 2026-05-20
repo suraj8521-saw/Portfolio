@@ -8,6 +8,7 @@ import ProjectsView from './components/ProjectsView';
 import ExperienceView from './components/ExperienceView';
 import ContactView from './components/ContactView';
 import Footer from './components/Footer';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -55,6 +56,8 @@ export default function App() {
         </AnimatePresence>
       </main>
 <Footer />
+<Analytics />
     </div>
+    
   );
 }
