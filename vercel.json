@@ -1,0 +1,10 @@
+{
+  "headers": [
+    {
+      "source": "/(.*).jpg",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
+}

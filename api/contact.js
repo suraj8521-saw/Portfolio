@@ -39,21 +39,28 @@ export default async function handler(req, res) {
           <div style="background-color: #000; padding: 20px; text-align: center;">
             <h1 style="color: #d4af37; margin: 0;">SK.</h1>
           </div>
+          // ... baaki code waisa hi rahega, bas ye neeche wala part update kar do:
+
           <div style="padding: 30px; text-align: center;">
-            <img src="https://YOUR-VERCEL-DOMAIN.vercel.app/surajprofile.jpg" alt="Suraj Kumar Saw" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #d4af37; object-fit: cover;">
-            
+         <img src="https://github.com/suraj8521-saw/Portfolio/blob/main/public/surajprofile.jpg" 
+     alt="Suraj Kumar Saw" 
+     style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #d4af37; object-fit: cover;">
             <div style="text-align: left; margin-top: 20px;">
               <h2 style="color: #333;">Hi ${name},</h2>
               <p style="color: #555; font-size: 16px;">Thanks for reaching out! I've successfully received your message regarding <strong>"${subject}"</strong>.</p>
+              
               <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #d4af37; margin: 20px 0;">
                 <p style="font-style: italic; color: #666;">"${message}"</p>
               </div>
+              
               <p style="color: #555;">I appreciate your interest and will get back to you shortly.</p>
               <p style="color: #333; font-weight: bold;">Best Regards,<br>Suraj Kumar Saw</p>
             </div>
           </div>
+          
           <div style="background: #f4f4f4; padding: 15px; text-align: center; font-size: 12px; color: #888;">
-            <p>Full-Stack Developer | IT Analyst</p>
+            <p style="margin: 0; font-weight: bold; color: #333;">Full-Stack Developer | AI & Machine Learning Enthusiast</p>
+            <p style="margin: 5px 0 0 0;">Building the future of web & intelligence.</p>
           </div>
         </div>
       `,
