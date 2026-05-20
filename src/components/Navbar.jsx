@@ -52,13 +52,19 @@ export default function Navbar({ activeSection, setActiveSection }) {
       <div className="w-full h-full px-5 md:px-8 flex items-center justify-between relative">
         
         <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          onClick={() => handleNavigation('home')}
-          className="text-2xl font-serif font-black tracking-wider text-slate-900 dark:text-white cursor-pointer select-none flex items-baseline"
-        >
-          SK<span className="text-purple-600 dark:text-sky-400 text-3xl leading-none">.</span>
-        </motion.div>
+  initial={{ opacity: 0, x: -20 }}
+  animate={{ opacity: 1, x: 0 }}
+  onClick={() => handleNavigation('home')}
+  className="cursor-pointer select-none flex items-center"
+>
+  <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-neutral-200 dark:border-neutral-700 shadow-md">
+    <img 
+      src="/surajprofile.jpg" 
+      alt="Suraj Kumar Saw" 
+      className="w-full h-full object-cover"
+    />
+  </div>
+</motion.div>
 
         <div className="hidden md:flex items-center gap-4 lg:gap-6">
           <div className="flex items-center gap-1 bg-neutral-100/90 dark:bg-neutral-900/80 p-1.5 rounded-full border border-neutral-200/80 dark:border-neutral-800/80 shadow-inner">
