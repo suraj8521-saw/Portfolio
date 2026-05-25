@@ -59,7 +59,7 @@ export default function ProjectsView() {
       image: " " ,
       fallbackIcon: <Database className="w-12 h-12 text-white/80" />,
       fallbackGradient: "from-amber-500 to-orange-600",
-      github: "#",
+      github: "https://github.com/suraj8521-saw/Pizza-Sales-Management",
       live: "#"
     }
   ];
